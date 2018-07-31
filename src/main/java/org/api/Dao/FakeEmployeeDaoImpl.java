@@ -30,11 +30,11 @@ public class FakeEmployeeDaoImpl implements EmployeeDao {
         return this.employees.get(id);
     }
     @Override
-    public Employee deleteEmployeeById(int id) {
-        return this.employees.remove(id);
+    public void deleteEmployeeById(int id) {
+        this.employees.remove(id);
     }
     @Override
-    public void updateEmployeeById(Employee employee){
+    public void updateEmployeeById(Employee employee, int id){
         Employee emp = employees.get(employee.getId());
         emp.setName(employee.getName());
         emp.setDesignation((employee.getDesignation()));

@@ -23,11 +23,10 @@ public class EmployeeService {
         return this.employeeDao.getEmloyeeById(id);
     }
 
-    public Employee deleteEmployeeById(int id) {
-        return this.employeeDao.deleteEmployeeById(id);
+    public void deleteEmployeeById(int id) { this.employeeDao.deleteEmployeeById(id);
     }
-    public void updateEmployeeById(Employee employee){
-        this.employeeDao.updateEmployeeById(employee);
+    public void updateEmployeeById(Employee employee, int id){
+        this.employeeDao.updateEmployeeById(employee, id);
     }
 
     public void insertEmployee(Employee employee) {

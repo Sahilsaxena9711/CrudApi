@@ -25,12 +25,12 @@ public class EmployeeController {
         return employeeService.getEmloyeeById(id);
     }
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public Employee deleteEmployeeById(@PathVariable("id") int id){
-        return employeeService.deleteEmployeeById(id);
+    public void deleteEmployeeById(@PathVariable("id") int id){
+        employeeService.deleteEmployeeById(id);
     }
-    @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public void updateEmployeeById(@RequestBody Employee employee){
-        employeeService.updateEmployeeById(employee);
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public void updateEmployeeById(@RequestBody Employee employee,@PathVariable("id") int id){
+        employeeService.updateEmployeeById(employee ,id);
     }
     @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
     public void insertEmployee(@RequestBody Employee employee){

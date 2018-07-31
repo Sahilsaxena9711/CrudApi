@@ -43,17 +43,23 @@ public class RealEmployeeDaoIml implements EmployeeDao {
     }
 
     @Override
-    public Employee deleteEmployeeById(int id) {
-        return null;
+    public void deleteEmployeeById(int id) {
+        jdbcTemplate.update("DELETE FROM employee where id = ?", id);
     }
 
     @Override
-    public void updateEmployeeById(Employee employee) {
-
+    public void updateEmployeeById(Employee employee, int id) {
+        final String sql = "UPDATE employee SET name = ?, designation = ? WHERE id = ?";
+        final String name = employee.getName();
+        final String designation = employee.getDesignation();
+        jdbcTemplate.update(sql, new Object[]{name, designation, id});
     }
 
     @Override
     public void insertEmployee(Employee employee) {
-
+        final String sql = "INSERT INTO employee (name, designation) values(?, ?)";
+        final String name  = employee.getName();
+        final String designation = employee.getDesignation();
+        jdbcTemplate.update(sql, new Object[]{name, designation});
     }
 }

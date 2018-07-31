@@ -9,9 +9,9 @@ public interface EmployeeDao {
 
     Employee getEmloyeeById(int id);
 
-    Employee deleteEmployeeById(int id);
+    void deleteEmployeeById(int id);
 
-    void updateEmployeeById(Employee employee);
+    void updateEmployeeById(Employee employee, int id);
 
     void insertEmployee(Employee employee);
 }
