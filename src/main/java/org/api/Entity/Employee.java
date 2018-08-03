@@ -10,6 +10,7 @@ public class Employee {
         this.name = name;
         this.designation = designation;
     }
+
     public Employee(){
 
     }
